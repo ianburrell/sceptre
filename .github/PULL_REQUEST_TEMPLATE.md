@@ -5,12 +5,13 @@ The more detailed you are, the better.**
 
 Before submitting the PR make sure the following are checked:
 
-* [ ] Wrote [good commit messages][1].
+* [ ] Wrote [good commit messages][1]. [How to fix commits after they've been pushed](https://superuser.com/questions/751699/is-there-a-way-to-edit-a-commit-message-in-github/751909)
 * [ ] Commit message starts with `[Fix #issue-number]` (if the related issue exists).
 * [ ] Used the same coding conventions as the rest of the project.
 * [ ] Feature branch is up-to-date with `master` (if not - rebase it).
 * [ ] [Squashed related commits together][2].
-* [ ] Added tests.
+* [ ] Added unit tests.
+* [ ] Added integration tests (if applicable).
 * [ ] Added an entry to the [History](../blob/master/HISTORY.RST) if the new code introduces user-observable changes.
 * [ ] All tests (`make test`) are passing.
 * [ ] The new code doesn't generate flake8 (`make lint`) offenses.
