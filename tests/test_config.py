@@ -59,7 +59,6 @@ class TestConfig(object):
         assert "!cmd" in yaml.SafeLoader.yaml_constructors
         assert "!asg_scheduled_actions" in yaml.SafeLoader.yaml_constructors
 
-
     def test_get_attribute_with_valid_attribute(self):
         self.config["key"] = "value"
         assert self.config["key"] == "value"
