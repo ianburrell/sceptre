@@ -115,10 +115,10 @@ class Config(dict):
         """
         obj = cls(sceptre_dir, environment_path, base_file_name)
         obj._add_yaml_constructors(
-            "sceptre.resolvers", environment_config, connection_manager
+            "sceptre.resolvers", connection_manager, environment_config
         )
         obj._add_yaml_constructors(
-            "sceptre.hooks", environment_config, connection_manager
+            "sceptre.hooks", connection_manager, environment_config
         )
         return obj
 
