@@ -175,6 +175,7 @@ class Config(dict):
                     )
                     template = env.get_template(file_name)
                     rendered_template = template.render(
+                        file_name=self.name,
                         environment_variable=os.environ,
                         var=user_variables,
                         environment_path=self.environment_path.split("/"),
