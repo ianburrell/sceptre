@@ -52,7 +52,7 @@ setup(
         ],
         "sceptre.hooks":[
             "asg_scheduled_actions ="
-            "sceptre.hooks.asg_scheduled_actions:ASGScheduledActions",
+            "sceptre.hooks.asg_scaling_processes:ASGScalingProcesses",
             "cmd = sceptre.hooks.cmd:Cmd"
         ],
         "sceptre.resolvers":[
