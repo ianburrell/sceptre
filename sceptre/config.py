@@ -7,12 +7,11 @@ This module implements a Config class, which stores a stack or environment's
 configuration.
 """
 
+import collections
 import logging
 import os
-import yaml
-import collections
 import pkg_resources
-
+import yaml
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from packaging.specifiers import SpecifierSet
@@ -22,8 +21,6 @@ from . import __version__
 from .exceptions import ConfigItemNotFoundError
 from .exceptions import EnvironmentPathNotFoundError
 from .exceptions import VersionIncompatibleError
-from .hooks import Hook
-from .resolvers import Resolver
 
 ConfigAttributes = collections.namedtuple("Attributes", "required optional")
 

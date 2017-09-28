@@ -2,16 +2,13 @@
 
 from contextlib import contextmanager
 from tempfile import mkdtemp
-import shutil
 import os
-from mock import patch, sentinel, call, Mock, ANY
+from mock import patch, sentinel
 import pytest
+import shutil
 import yaml
 
 from sceptre.config import Config
-from sceptre.hooks import Hook
-from sceptre.hooks.cmd import Cmd
-from sceptre.resolvers import Resolver
 from sceptre.exceptions import ConfigItemNotFoundError
 from sceptre.exceptions import EnvironmentPathNotFoundError
 from sceptre.exceptions import VersionIncompatibleError
