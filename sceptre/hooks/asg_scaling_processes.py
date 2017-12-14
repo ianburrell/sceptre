@@ -67,11 +67,12 @@ class ASGScalingProcesses(Hook):
         Retrieves all resources in stack.
         :return: list
         """
-        full_stack_name = "-".join([
+
+        stack_name = self.stack_config.get("stack_name", "-".join([
             self.environment_config["project_code"],
-            self.environment_config.environment_path,
+            self.environment_config.environment_path.replace("/", "-"),
             self.stack_config.name
-        ]).replace("/", "-")
+        ]))
         response = self.connection_manager.call(
             service="cloudformation",
             command="describe_stack_resources",
