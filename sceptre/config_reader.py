@@ -308,7 +308,7 @@ class ConfigReader(object):
         s3_details = None
         if "template_bucket_name" in config:
             template_key = "/".join([
-                stack_name, "{time_stamp}.json".format(
+                stack_name, "{time_stamp}".format(
                     time_stamp=datetime.datetime.utcnow().strftime(
                         "%Y-%m-%d-%H-%M-%S-%fZ"
                     )
@@ -316,8 +316,8 @@ class ConfigReader(object):
             ])
 
             if "template_key_prefix" in config:
-                prefix = config["template_key_prefix"]
-                template_key = "/".join([prefix.strip("/"), template_key])
+                prefix = config["template_key_prefix"].strip("/")
+                template_key = "/".join([ prefix, template_key ])
 
             s3_details = {
                  "bucket_name": config["template_bucket_name"],

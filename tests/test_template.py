@@ -69,7 +69,7 @@ class TestTemplate(object):
             command="put_object",
             kwargs={
                 "Bucket": "bucket-name",
-                "Key": "bucket-key",
+                "Key": "bucket-key/template.py",
                 "Body": '{"template": "mock"}',
                 "ServerSideEncryption": "AES256"
             }

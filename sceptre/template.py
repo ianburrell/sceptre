@@ -148,9 +148,10 @@ class Template(object):
             if not self._bucket_exists():
                 self._create_bucket()
 
-        # Remove any leading or trailing slashes the user may have added.
         bucket_name = self.s3_details["bucket_name"]
         bucket_key = self.s3_details["bucket_key"]
+        template_file = os.path.basename(self.path)
+        template_key = "/".join([ bucket_key, template_file ])
 
         self.logger.debug(
             "%s - Uploading template to: 's3://%s/%s'",
@@ -161,14 +162,14 @@ class Template(object):
             command="put_object",
             kwargs={
                 "Bucket": bucket_name,
-                "Key": bucket_key,
+                "Key": template_key,
                 "Body": self.body,
                 "ServerSideEncryption": "AES256"
             }
         )
 
         url = "https://{0}.s3.amazonaws.com/{1}".format(
-            bucket_name, bucket_key
+            bucket_name, template_key
         )
 
         self.logger.debug("%s - Template URL: '%s'", self.name, url)
