@@ -554,6 +554,7 @@ class Stack(object):
         )
         return response
 
+    @add_stack_hooks
     def create_change_set(self, change_set_name):
         """
         Creates a change set with the name ``change_set_name``.
