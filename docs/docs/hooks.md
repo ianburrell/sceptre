@@ -20,6 +20,8 @@ If required, users can create their own `hooks`, as described in the section [Cu
 
 `before_delete` or `after_delete` - run hook before or after stack deletion.
 
+`before_create_change_set` or `after_create_change_set` - run hook before or after create change set.
+
 
 Syntax:
 
