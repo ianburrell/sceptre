@@ -57,19 +57,22 @@ def execute_hooks(hooks):
                 hook.run()
 
 
-def add_stack_hooks(func):
+def add_stack_hooks(name):
     """
     A function decorator to trigger the before and after hooks, relative
-    to the decorated function's name.
-    :param func: a function that operates on a stack
-    :type func: function
+    to the name.
+    :param name: base name for the decorator
+    :type name: string
     """
-    @wraps(func)
-    def decorated(self, *args, **kwargs):
-        execute_hooks(self.hooks.get("before_" + func.__name__))
-        response = func(self, *args, **kwargs)
-        execute_hooks(self.hooks.get("after_" + func.__name__))
+    def add_stack_hooks_decorator(func):
+        @wraps(func)
+        def decorated(self, *args, **kwargs):
+            execute_hooks(self.hooks.get("before_" + name))
+            response = func(self, *args, **kwargs)
+            execute_hooks(self.hooks.get("after_" + name))
 
-        return response
+            return response
 
-    return decorated
+        return decorated
+    return add_stack_hooks_decorator
+

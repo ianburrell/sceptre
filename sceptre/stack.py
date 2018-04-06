@@ -180,7 +180,7 @@ class Stack(object):
             )
         return self._external_name
 
-    @add_stack_hooks
+    @add_stack_hooks('create')
     def create(self):
         """
         Creates the stack.
@@ -219,7 +219,7 @@ class Stack(object):
 
         return status
 
-    @add_stack_hooks
+    @add_stack_hooks('update')
     def update(self):
         """
         Updates the stack.
@@ -314,7 +314,7 @@ class Stack(object):
             )
         return status
 
-    @add_stack_hooks
+    @add_stack_hooks('delete')
     def delete(self):
         """
         Deletes the stack.

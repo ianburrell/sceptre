@@ -33,7 +33,7 @@ class TestHooksFunctions(object):
         mock_object.mock_function = mock_function
         mock_object.mock_function.__name__ = 'mock_function'
 
-        add_stack_hooks(mock_object.mock_function)(mock_object)
+        add_stack_hooks('mock_function')(mock_object.mock_function)(mock_object)
 
         assert mock_hook_before.run.call_count == 1
         assert mock_hook_after.run.call_count == 1
