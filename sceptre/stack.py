@@ -181,6 +181,7 @@ class Stack(object):
         return self._external_name
 
     @add_stack_hooks('create')
+    @add_stack_hooks('change')
     def create(self):
         """
         Creates the stack.
@@ -220,6 +221,7 @@ class Stack(object):
         return status
 
     @add_stack_hooks('update')
+    @add_stack_hooks('change')
     def update(self):
         """
         Updates the stack.
@@ -514,6 +516,7 @@ class Stack(object):
         )
         return response
 
+    @add_stack_hooks('change')
     def create_change_set(self, change_set_name):
         """
         Creates a change set with the name ``change_set_name``.
